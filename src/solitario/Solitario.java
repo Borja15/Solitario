@@ -1,5 +1,7 @@
 package solitario;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Borja Andrades
@@ -7,6 +9,7 @@ package solitario;
 public class Solitario {
     
     int tamañox,tamañoy;
+    int posicionx,posiciony;
     String[][] tablero ={{"#","#","*","*","*","#","#"},
                              {"#","#","*","*","*","#","#"},
                              {"*","*","*","*","*","*","*"},
@@ -14,10 +17,11 @@ public class Solitario {
                              {"*","*","*","*","*","*","*"},
                              {"#","#","*","*","*","#","#"},
                              {"#","#","*","*","*","#","#"}};
+    
     //Metodo constructor con el tamaño x/y
     public void Solitario(int tamañox,int tamañoy){
-       this.tamañox=tamañox;
-       this.tamañoy=tamañoy;
+       this.tamañox =tamañox;
+       this.tamañoy =tamañoy;
     }
     
     //Metodo que dibuja el tablero
@@ -33,24 +37,46 @@ public class Solitario {
         return tablerojuego;   
 }
     //Prueba metodo elemento vacio
-    void ElmentoVacio(){
-        if( tamañox ==4){
-            if(tamañoy==4){
-                tablero[tamañox][tamañoy] = null;
-            }
-        }
-    }
+//    void ElmentoVacio(){
+//        if( tamañox ==4){
+//            if(tamañoy==4){
+//                tablero[tamañox][tamañoy] = null;
+//            }
+//        }
+//    }
     //Prueba metodo elemento vacio
     
-    //Posicion inicial de tamaño x
-    public void getposicionX(){
-        
+    //posicionX inicial
+    Integer getPosicionX(){
+        return posicionx;
     }
     
-    //Posicion inicial de tamaño y
-    public void getposicionY(){
-        
+    //posicionYinicial
+    Integer getPosicionY(){
+        return posiciony;
     }
+    
+   public void comprobarMovimiento(int posicionx,int posiciony){
+      this.posicionx = posicionx;
+      this.posiciony = posiciony;
+      if(posicionx>tamañox){
+          String error = (true) ? "ERROR:SALES DEL TABLERO  POSICIONX INCORRECTA" : "";
+          JOptionPane.showMessageDialog(null,error,"Posicion Incorrecta",JOptionPane.INFORMATION_MESSAGE);
+      }else{
+          if(posiciony>tamañoy){
+              String error = (true) ? "ERROR:SALES DEL TABLERO  POSICIONY INCORRECTA" : "";
+              JOptionPane.showMessageDialog(null,error,"Posicion Incorrecta",JOptionPane.INFORMATION_MESSAGE);
+          }
+      }
+   }
+   
+   String Mover(){
+        return null;  
+   }
+   
+//   String deshacer(){
+//       
+//   }
 }
 
     
